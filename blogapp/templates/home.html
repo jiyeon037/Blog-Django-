@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<body>
+<div class="container">
+<br>
+{%for blog in blogs.all %}
+<!-- a태그에 링크 거는 법 : 템플릿 태그 안에 url 띄고 path이름 + 몇번째 객체인지 -->
+<div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
+          <p class="card-text">{{blog.summary}}</p>
+          <a href="{% url 'detail' blog.id %}" class="card-link">...more</a>
+        </div>
+    </div>
+<br><br>
+{% endfor %}
+</div>
+
+</body>
+{% endblock %}
